@@ -1,4 +1,24 @@
+/* admin main page */
 #adminMenu > table img {
     width: 200px;
     height: 200px;
+}
+
+/* admin form with posts */
+#tblPosts {
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+#tblPosts th, #tblPosts td {
+    padding: 3px;
+    border: 1px solid black;
+}
+
+#tblPosts th {
+    background: #b0e0e6;
+}
+
+#divButtonCreatePost {
+    padding: 3px;
 }

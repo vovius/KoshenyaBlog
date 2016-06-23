@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/koshenya.css" />" />
     <script src="<c:url value="/resources/js/jquery.js" />" ></script>
     <script src="<c:url value="/resources/js/jquery-ui.js" />"></script>
-    <style id="style-post-textarea">
-        textarea {width: 555px; height: 138px}
-    </style>
 
     <script>
         // Create post dialog
@@ -72,7 +69,7 @@
                 document.getElementById("postHeader").value = rowCells.eq(3).text();
                 document.getElementById("postText").value = rowCells.eq(4).text();
                 document.getElementById("picture").value = '';
-                document.getElementById("pictureFile").src = "getPostFile/" + rowCells.eq(0).text();
+                document.getElementById("pictureFile").src = "getPostFile/" + rowCells.eq(1).text();
                 dialog.dialog("open");
             });
 
@@ -113,11 +110,14 @@
         </fieldset>
     </form>
 </div>
-<button id="createPost">Create new Post</button>
+<div id="divButtonCreatePost">
+    <button id="createPost">Create new Post</button>
+</div>
 <div id="divPosts" title="Posts">
     <table id="tblPosts">
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Id</th>
                 <th>Created</th>
                 <th>Changed</th>
@@ -130,13 +130,14 @@
         <tbody>
             <c:forEach items="${messages}" var="message">
                 <tr>
+                    <td><img src='${"getPostFile/".concat(message.id)}' alt="image 1" width="100" height="100" /></td>
                     <td>${message.id}</td>
                     <td><fmt:formatDate type="both" value="${message.created}" pattern="dd-MM-yyyy HH:mm" /></td>
                     <td><fmt:formatDate type="both" value="${message.changed}" pattern="dd-MM-yyyy HH:mm" /></td>
                     <td>${message.header}</td>
                     <td>${message.text}</td>
                     <td><input type="button" value="Edit" class="editPost" /></td>
-                    <td><button type="button">Delete</button> </td>
+                    <td><input type="button" value="Delete" class="ui-button ui-widget ui-state-default ui-corner-all" /></td>
                 </tr>
             </c:forEach>
         </tbody>

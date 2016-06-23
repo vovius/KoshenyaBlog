@@ -1,8 +1,13 @@
 TODO:
 -----
+Admin posts:
 1. Post preview
-2. Image column in admin posts
-3. Post visibility
+3. Post visibility turning on/off
+4. Image references in the posts
+
+Admin pictures:
+1. Delete picture
 
 Done:
 -----
+2. Image column in admin posts

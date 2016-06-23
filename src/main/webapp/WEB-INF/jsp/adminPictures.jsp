@@ -31,7 +31,7 @@
     <tbody>
         <tr>
             <c:forEach items="${images}" var="image" varStatus="i">
-                <td><img src='${"getImage/".concat(image.id)}' title="${image.description.concat(", added: ").concat(image.created)}" width="100" height="100" /></td>
+                <td><img src='${"getImage/".concat(image.id)}' title="${'id: '.concat(image.id).concat(', ').concat(image.description).concat(', added: ').concat(image.created)}" width="100" height="100" /></td>
             </c:forEach>
         </tr>
     </tbody>
