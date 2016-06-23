@@ -1,0 +1,8 @@
+TODO:
+-----
+1. Post preview
+2. Image column in admin posts
+3. Post visibility
+
+Done:
+-----
