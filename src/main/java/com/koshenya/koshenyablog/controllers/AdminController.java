@@ -5,6 +5,7 @@ import com.koshenya.koshenyablog.data.Image;
 import com.koshenya.koshenyablog.data.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -86,5 +87,11 @@ public class AdminController {
                 .contentType(MediaType.parseMediaType(mimeType))
                 .body(new InputStreamResource(picture));
 
+    }
+
+    @RequestMapping(value = "/deleteImages", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity<String> deleteImages() {
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 }

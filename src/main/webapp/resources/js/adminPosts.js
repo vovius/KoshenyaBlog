@@ -1,27 +1,21 @@
-// clearing the dialog
-$(document).ready(function(){
-    document.getElementById("picture").value = '';
-    document.getElementById("pictureFile").src = '';
-});
-
 // Create post dialog
 $(function() {
     var dialog, form;
 
-    function addImage() {
-        document.formAddImage.submit();
+    function addPost() {
+        document.formCreatePost.submit();
         dialog.dialog("close");
     }
 
     function getDialog() {
-        var dialogEdit = $("#dialogAddImage").dialog({
+        var dialogEdit = $("#dialogCreatePost").dialog({
             autoOpen: false,
             height: 560,
             width: 620,
             modal: true,
             buttons: {
-                "Save": addImage,
-                "Cancel": function () {
+                "Save": addPost,
+                Cancel: function () {
                     dialogEdit.dialog("close");
                 }
             },
@@ -43,16 +37,23 @@ $(function() {
         event.preventDefault();
     });
 
-    $("#addImage").button().on("click", function () {
-        $("#dialogAddImage").dialog("option", "title", "Add image");
+    $("#createPost").button().on("click", function () {
+        $("#dialogCreatePost").dialog("option", "title", "Create post");
         document.getElementById("picture").value = '';
-        document.getElementById("pictureFile").src = '';
+        document.getElementById("pictureFile").src = "";
         dialog.dialog("open");
     });
 
-    // setting 'checked' property for the checkboxes once clicked
-    $('.imageCheck').click(function() {
-        this.setAttribute('checked',this.checked);
+    $('.editPost').button().on('click', function() {
+        $("#dialogCreatePost").dialog("option", "title", "Edit post");
+        var rowCells = $(this).parent().parent().find('td');
+        document.getElementById("postId").value = rowCells.eq(0).text();
+        document.getElementById("created").value = rowCells.eq(1).text();
+        document.getElementById("postHeader").value = rowCells.eq(3).text();
+        document.getElementById("postText").value = rowCells.eq(4).text();
+        document.getElementById("picture").value = '';
+        document.getElementById("pictureFile").src = "getPostFile/" + rowCells.eq(1).text();
+        dialog.dialog("open");
     });
 
 });
@@ -68,22 +69,5 @@ function readURL(input) {
 
         reader.readAsDataURL(input.files[0]);
     }
-}
+};
 
-// delete selected images
-function deleteSelectedImages(input) {
-    var allCheckbox = $("#tblImages").find("[type=checkbox]");
-    var checkedIds = new Array();
-    $.each(allCheckbox, function(index, value) {
-        if (value.checked) {
-            console.log(value.value);
-            checkedIds.push(value.value);
-        }
-    });
-
-    $.ajax({
-        type: 'DELETE',
-        url: 'deleteImages'
-    });
-
-}

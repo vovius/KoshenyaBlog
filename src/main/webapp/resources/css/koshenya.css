@@ -22,3 +22,10 @@
 #divButtonCreatePost {
     padding: 3px;
 }
+
+
+/* admin form for images library */
+#adminPicturesButtonsMenu {
+    border: 1px solid black;
+    padding: 3px;
+}

@@ -26,12 +26,22 @@
         </fieldset>
     </form>
 </div>
-<button id="addImage">Add image</button>
+<div id="adminPicturesButtonsMenu">
+    <input type="button" id="addImage" value="Add image" />
+    <input type="button" id="deleteSelectedImages" class="ui-button ui-widget ui-state-default ui-corner-all" value="Delete selected" onclick="deleteSelectedImages(this);" />
+</div>
 <table id="tblImages">
     <tbody>
         <tr>
             <c:forEach items="${images}" var="image" varStatus="i">
-                <td><img src='${"getImage/".concat(image.id)}' title="${'id: '.concat(image.id).concat(', ').concat(image.description).concat(', added: ').concat(image.created)}" width="100" height="100" /></td>
+                <td>
+                    <table>
+                        <tr id="imageEntity">
+                            <td valign="top"><input type="checkbox" id="${'imageCheck'.concat(image.id)}" value="${image.id}" class="imageCheck"/></td>
+                            <td><label for="${'imageCheck'.concat(image.id)}"><img src='${"getImage/".concat(image.id)}' title="${'id: '.concat(image.id).concat(', ').concat(image.description).concat(', added: ').concat(image.created)}" width="100" height="100" /></label></td>
+                        </tr>
+                    </table>
+                </td>
             </c:forEach>
         </tr>
     </tbody>

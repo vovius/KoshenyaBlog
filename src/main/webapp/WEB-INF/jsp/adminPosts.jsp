@@ -9,86 +9,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/koshenya.css" />" />
     <script src="<c:url value="/resources/js/jquery.js" />" ></script>
     <script src="<c:url value="/resources/js/jquery-ui.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/adminPosts.js" />" ></script>
 
-    <script>
-        // Create post dialog
-        $(function() {
-            var dialog, form;
-
-            function addPost() {
-                //dialog.find("form").submit();
-                document.formCreatePost.submit();
-                /*$("form#formCreatePost").submit(function(event) {
-                    event.preventDefault();
-                });*/
-                dialog.dialog("close");
-            }
-
-            function getDialog() {
-                var dialogEdit = $("#dialogCreatePost").dialog({
-                    autoOpen: false,
-                    height: 560,
-                    width: 620,
-                    modal: true,
-                    buttons: {
-                        "Save": addPost,
-                        Cancel: function () {
-                            dialogEdit.dialog("close");
-                        }
-                    },
-                    open: function () {
-                        //document.getElementById("postText").value = "123";
-                    },
-                    close: function () {
-                        form[0].reset();
-                        //allFields.removeClass("ui-state-error");
-                    }
-                });
-
-                return dialogEdit;
-            }
-
-            dialog = getDialog();
-
-            form = dialog.find("form").on("submit", function (event) {
-                event.preventDefault();
-            });
-
-            $("#createPost").button().on("click", function () {
-                $("#dialogCreatePost").dialog("option", "title", "Create post");
-                document.getElementById("picture").value = '';
-                document.getElementById("pictureFile").src = "";
-                dialog.dialog("open");
-            });
-
-            $('.editPost').button().on('click', function() {
-                $("#dialogCreatePost").dialog("option", "title", "Edit post");
-                var rowCells = $(this).parent().parent().find('td');
-                document.getElementById("postId").value = rowCells.eq(0).text();
-                document.getElementById("created").value = rowCells.eq(1).text();
-                document.getElementById("postHeader").value = rowCells.eq(3).text();
-                document.getElementById("postText").value = rowCells.eq(4).text();
-                document.getElementById("picture").value = '';
-                document.getElementById("pictureFile").src = "getPostFile/" + rowCells.eq(1).text();
-                dialog.dialog("open");
-            });
-
-        });
-
-        // image refreshing
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#pictureFile').attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        };
-
-    </script>
 </head>
 <body>
 
