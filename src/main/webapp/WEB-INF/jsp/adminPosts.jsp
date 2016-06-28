@@ -18,11 +18,17 @@
     <form method="post" enctype="multipart/form-data" action="savePostServlet" name="formCreatePost" id="formCreatePost">
         <fieldset>
             <input type="hidden" id="postId" name="postId"/>
-            <input type="hidden" id="created" name="created">
-            <label for="postHeader">Header</label>
-            <input id="postHeader" name="postHeader" type="text" class="text ui-widget-content ui-corner-all" style="width:555px" /><br/>
+            <input type="hidden" id="created" name="created" />
+            <div>
+                <input type="checkbox" id="isVisible" name="isVisible"/>
+                <label for="isVisible">Visible</label>
+            </div>
+            <div>
+                <label for="postHeader">Header</label>
+                <input id="postHeader" name="postHeader" type="text" class="text ui-widget-content ui-corner-all" style="width:555px" /><br/>
+            </div>
             <label for="postText">Text</label>
-            <textarea name="postText" id="postText" class="text ui-widget-content ui-corner-all" style="width:555px;height:138px"></textarea>
+            <textarea name="postText" id="postText" class="text-area ui-widget-content ui-corner-all" style="width:555px;height:138px"></textarea>
             <label for="picture">Picture</label>
             <input type="file" name="picture" id="picture" value="Upload picture" class="text ui-widget-content ui-corner-all" style="width: 555px" onchange="readURL(this);">
             <img id="pictureFile" name="pictureFile" src="" width="100" height="100" />
@@ -45,6 +51,7 @@
                 <th>Changed</th>
                 <th>Header</th>
                 <th>Text</th>
+                <th>Visible</th>
                 <th/>
                 <th/>
             </tr>
@@ -58,6 +65,10 @@
                     <td><fmt:formatDate type="both" value="${message.changed}" pattern="dd-MM-yyyy HH:mm" /></td>
                     <td>${message.header}</td>
                     <td>${message.text}</td>
+                    <td align="center"><input type="checkbox" id="rowPostIsVisible" name="rowPostIsVisible" disabled
+                            <c:if test="${message.visible}">checked</c:if>
+                        />
+                    </td>
                     <td><input type="button" value="Edit" class="editPost" /></td>
                     <td><input type="button" value="Delete" class="ui-button ui-widget ui-state-default ui-corner-all" /></td>
                 </tr>

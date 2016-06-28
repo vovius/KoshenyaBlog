@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.Arrays;
 
 /**
  * Created by Admin on 1/13/2016.
@@ -34,6 +35,9 @@ public class Message {
     @Column(name="picture")
     @Lob
     private byte[] picture;
+
+    @Column(name="visible")
+    private boolean visible;
 
     public int getId() {
         return id;
@@ -83,14 +87,24 @@ public class Message {
         this.picture = picture;
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
                 "id=" + id +
                 ", created=" + created +
                 ", changed=" + changed +
+                ", header='" + header + '\'' +
                 ", text='" + text + '\'' +
-                ", picture=" + picture +
+                ", picture=" + Arrays.toString(picture) +
+                ", visible=" + visible +
                 '}';
     }
 }

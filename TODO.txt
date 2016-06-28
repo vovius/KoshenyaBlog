@@ -2,7 +2,6 @@ TODO:
 -----
 Admin posts:
 1. Post preview
-3. Post visibility turning on/off
 4. Image references in the posts
 5. Delete selected posts
 
@@ -12,6 +11,7 @@ Done:
 -----
 Admin posts:
 2. Image column in admin posts
+3. Post visibility turning on/off
 
 Admin images:
 1. Delete picture (current and selected)

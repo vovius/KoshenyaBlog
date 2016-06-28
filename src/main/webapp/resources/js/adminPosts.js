@@ -47,12 +47,18 @@ $(function() {
     $('.editPost').button().on('click', function() {
         $("#dialogCreatePost").dialog("option", "title", "Edit post");
         var rowCells = $(this).parent().parent().find('td');
-        document.getElementById("postId").value = rowCells.eq(0).text();
-        document.getElementById("created").value = rowCells.eq(1).text();
-        document.getElementById("postHeader").value = rowCells.eq(3).text();
-        document.getElementById("postText").value = rowCells.eq(4).text();
+        document.getElementById("postId").value = rowCells.eq(1).text();
+        document.getElementById("created").value = rowCells.eq(2).text();
+        document.getElementById("postHeader").value = rowCells.eq(4).text();
+        document.getElementById("postText").value = rowCells.eq(5).text();
         document.getElementById("picture").value = '';
         document.getElementById("pictureFile").src = "getPostFile/" + rowCells.eq(1).text();
+        $(rowCells).find('#rowPostIsVisible').each(function () {
+           if ($(this).attr('checked') != undefined)
+               document.getElementById("isVisible").setAttribute("checked","");
+            else
+               document.getElementById("isVisible").removeAttribute("checked");
+        });
         dialog.dialog("open");
     });
 

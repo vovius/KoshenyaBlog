@@ -2,6 +2,7 @@ package com.koshenya.koshenyablog.servlets;
 
 import com.koshenya.koshenyablog.data.dao.BlogDAO;
 import com.koshenya.koshenyablog.data.persistance.Message;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -55,6 +56,9 @@ public class SavePostServlet extends HttpServlet {
 
         message.setHeader((String)request.getParameter("postHeader"));
         message.setText((String)request.getParameter("postText"));
+
+        if (request.getParameter("isVisible") != null)
+            message.setVisible(Boolean.TRUE);
 
         InputStream fileStream = null;
         Part filePart = request.getPart("picture");
