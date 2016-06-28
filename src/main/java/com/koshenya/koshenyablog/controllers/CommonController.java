@@ -1,8 +1,8 @@
 package com.koshenya.koshenyablog.controllers;
 
-import com.koshenya.koshenyablog.data.BlogDAO;
-import com.koshenya.koshenyablog.data.Image;
-import com.koshenya.koshenyablog.data.Message;
+import com.koshenya.koshenyablog.data.dao.BlogDAO;
+import com.koshenya.koshenyablog.data.persistance.Image;
+import com.koshenya.koshenyablog.data.persistance.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;

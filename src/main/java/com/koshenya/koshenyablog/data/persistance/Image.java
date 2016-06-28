@@ -1,4 +1,4 @@
-package com.koshenya.koshenyablog.data;
+package com.koshenya.koshenyablog.data.persistance;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

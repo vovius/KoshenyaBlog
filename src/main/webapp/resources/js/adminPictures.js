@@ -77,13 +77,25 @@ function deleteSelectedImages(input) {
     $.each(allCheckbox, function(index, value) {
         if (value.checked) {
             console.log(value.value);
-            checkedIds.push(value.value);
+            checkedIds.push(parseInt(value.value));
         }
     });
+    
+    var data = JSON.stringify({
+            imageIds: checkedIds
+        });
 
     $.ajax({
-        type: 'DELETE',
-        url: 'deleteImages'
+        type: 'POST',
+        url: 'adminPictures/deleteImages',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: data,
+        success: function (data) {
+            location.reload();
+        }
     });
 
 }

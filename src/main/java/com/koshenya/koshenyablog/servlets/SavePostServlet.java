@@ -1,7 +1,7 @@
 package com.koshenya.koshenyablog.servlets;
 
-import com.koshenya.koshenyablog.data.BlogDAO;
-import com.koshenya.koshenyablog.data.Message;
+import com.koshenya.koshenyablog.data.dao.BlogDAO;
+import com.koshenya.koshenyablog.data.persistance.Message;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;

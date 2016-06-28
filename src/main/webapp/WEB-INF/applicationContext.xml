@@ -12,6 +12,7 @@
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -58,7 +59,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>com.koshenya.koshenyablog</value>
+                <value>com.koshenya.koshenyablog.data.persistance</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -75,7 +76,7 @@
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    <bean id="blogDAO" class="com.koshenya.koshenyablog.data.BlogDAO" />
+    <bean id="blogDAO" class="com.koshenya.koshenyablog.data.dao.BlogDAO" />
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="5000000" />

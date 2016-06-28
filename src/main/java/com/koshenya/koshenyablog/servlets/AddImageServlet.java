@@ -1,7 +1,7 @@
 package com.koshenya.koshenyablog.servlets;
 
-import com.koshenya.koshenyablog.data.BlogDAO;
-import com.koshenya.koshenyablog.data.Image;
+import com.koshenya.koshenyablog.data.dao.BlogDAO;
+import com.koshenya.koshenyablog.data.persistance.Image;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Timestamp;
 
 @WebServlet("/admin/addImageServlet")

@@ -7,8 +7,12 @@ Admin posts:
 5. Delete selected posts
 
 Admin pictures:
-1. Delete picture (current and selected)
 
 Done:
 -----
+Admin posts:
 2. Image column in admin posts
+
+Admin images:
+1. Delete picture (current and selected)
+

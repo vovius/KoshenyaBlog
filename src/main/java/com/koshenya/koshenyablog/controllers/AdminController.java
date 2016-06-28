@@ -1,8 +1,9 @@
 package com.koshenya.koshenyablog.controllers;
 
-import com.koshenya.koshenyablog.data.BlogDAO;
-import com.koshenya.koshenyablog.data.Image;
-import com.koshenya.koshenyablog.data.Message;
+import com.koshenya.koshenyablog.data.dao.BlogDAO;
+import com.koshenya.koshenyablog.data.dto.AdminPicturesDTO;
+import com.koshenya.koshenyablog.data.persistance.Image;
+import com.koshenya.koshenyablog.data.persistance.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
@@ -89,9 +90,12 @@ public class AdminController {
 
     }
 
-    @RequestMapping(value = "/deleteImages", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/adminPictures/deleteImages", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<String> deleteImages() {
+    public ResponseEntity<String> deleteImages(@RequestBody AdminPicturesDTO dto) {
+    //public ModelAndView deleteImages(@RequestBody AdminPicturesDTO dto) {
+        blogDAO.deleteImages(dto.getImageIds());
         return new ResponseEntity<String>(HttpStatus.OK);
+        //return getAdminPicturesView();
     }
 }

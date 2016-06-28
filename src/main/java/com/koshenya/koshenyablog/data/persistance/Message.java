@@ -1,4 +1,4 @@
-package com.koshenya.koshenyablog.data;
+package com.koshenya.koshenyablog.data.persistance;
 
 import org.hibernate.annotations.GenericGenerator;
 

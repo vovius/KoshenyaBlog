@@ -1,8 +1,12 @@
-package com.koshenya.koshenyablog.data;
+package com.koshenya.koshenyablog.data.dao;
 
+import com.koshenya.koshenyablog.data.persistance.Image;
+import com.koshenya.koshenyablog.data.persistance.Message;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +50,9 @@ public class BlogDAO {
 
     @Transactional
     public List<Image> getImages() {
-        List<Image> list = (List<Image>)sessionFactory.getCurrentSession().createCriteria(Image.class).list();
+        List<Image> list = (List<Image>)sessionFactory.getCurrentSession().createCriteria(Image.class)
+                .addOrder(Order.asc("id"))
+                .list();
         return list;
     }
 
@@ -65,4 +71,20 @@ public class BlogDAO {
         session.close();
     }
 
+    @Transactional
+    public void deleteImages(List<Integer> ids) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query query = session.createQuery("delete from Image where id in (:ids)");
+            query.setParameterList("ids", ids);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
