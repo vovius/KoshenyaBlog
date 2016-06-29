@@ -4,11 +4,15 @@ Admin posts:
 1. Post preview
 4. Image references in the posts
 5. Delete selected posts
+6. Comments to the post
 
 Admin pictures:
+Implement image description
 
 Blog:
-1. Implement apache tiles for all pages (main blog news, post page)
+
+Portfolio:
+Develop view of images library (image with description)
 
 Done:
 -----
@@ -19,3 +23,5 @@ Admin posts:
 Admin images:
 1. Delete picture (current and selected)
 
+Blog:
+1. Implement apache tiles for all pages (main blog news, post page)

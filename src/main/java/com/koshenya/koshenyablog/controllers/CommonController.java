@@ -30,19 +30,19 @@ public class CommonController {
 
     @RequestMapping("/")
     public ModelAndView getCommonView() {
-        ModelAndView model = new ModelAndView("index");
+        ModelAndView model = new ModelAndView("blogPosts");
         model.addObject("messages", blogDAO.getMessages());
         return model;
     }
 
-    @RequestMapping(value = "/blog_post/{postId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/blogPost/{postId}", method = RequestMethod.GET)
     public ModelAndView getPostFullView(@PathVariable("postId") int postId) {
-        ModelAndView model = new ModelAndView("blog_post");
+        ModelAndView model = new ModelAndView("blogPost");
         model.addObject("message", blogDAO.getMessage(postId));
         return model;
     }
 
-    @RequestMapping(value = "/getPostFile/{postId}", method = RequestMethod.GET)
+    @RequestMapping(value = "**/getPostFile/{postId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getPostFile(@PathVariable("postId") int postId, HttpServletResponse response) throws SQLException, IOException {
         Message message = blogDAO.getMessage(postId);
