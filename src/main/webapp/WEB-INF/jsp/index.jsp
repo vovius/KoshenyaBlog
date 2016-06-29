@@ -8,9 +8,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Clean Blog Template</title>
-<meta name="keywords" content="clean blog template, html css layout" />
-<meta name="description" content="Clean Blog Template is provided by templatemo.com" />
+<title>Блог про кошенят</title>
+<meta name="keywords" content="cat kitty blog" />
+<meta name="description" content="Cat blog" />
 <link href="<c:url value="/resources/css/templatemo_style.css"/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/s3slider.css" />" rel="stylesheet" type="text/css" />
 <!-- JavaScripts-->
@@ -124,46 +124,46 @@
             <c:forEach items="${messages}" var="message">
                 <div class="post_section">
 
-                    <span class="comment"><a href="blog_post.html">128</a></span>
+                    <span class="comment"><a href="blog_post.jsp">128</a></span>
 
-                    <h2><a href="blog_post.html">${message.header}</a></h2>
+                    <h2><a href="${'blog_post/'.concat(message.id)}">${message.header}</a></h2>
 
                     <fmt:formatDate type="both" value="${message.created}" dateStyle="long" timeStyle="short" /> | <strong>Author:</strong> Koshenya | <strong>Category:</strong> <a href="#">Post</a>
 
                     <img src='${"getPostFile/".concat(message.id)}' alt="image 1" width="430" height="100" />
 
                     <p>${message.text}</p>
-                    <a href="blog_post.html">Continue reading...</a>
+                    <a href="${'blog_post/'.concat(message.id)}">Читати далі...</a>
 
                 </div>
             </c:forEach>
             <div class="post_section">
             
-                <span class="comment"><a href="blog_post.html">128</a></span>
+                <span class="comment"><a href="blog_post.jsp">128</a></span>
             
-                <h2><a href="blog_post.html">Aliquam lorem ante dapibus</a></h2>
+                <h2><a href="blog_post.jsp">Aliquam lorem ante dapibus</a></h2>
     
             	December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
                 
                 <img src="<c:url value="/resources/images/templatemo_image_01.jpg" />" alt="image 1" />
                 
                 <p>Clean Blog is a <a href="http://www.templatemo.com" target="_parent">Free HTML-CSS Template</a> provided by <a href="#">templatemo.com</a> for everyone. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>. Donec enim enim, imperdiet quis, mollis a, elementum a, diam. Lorem ipsum  dolor sit amet, consectetur adipiscing elit. Nulla et nunc commodo ante ornare imperdiet.</p>
-              <a href="blog_post.html">Continue reading...</a>
+              <a href="blog_post.jsp">Continue reading...</a>
                 
             </div>
                 
             <div class="post_section">
                     
-                <span class="comment"><a href="blog_post.html">256</a></span>
+                <span class="comment"><a href="blog_post.jsp">256</a></span>
             
-                <h2><a href="blog_post.html">Lorem ipsum dolor sit amet</a></h2>
+                <h2><a href="blog_post.jsp">Lorem ipsum dolor sit amet</a></h2>
                 
                 December 24, 2048 | <strong>Author:</strong> Steve | <strong>Category:</strong> <a href="#">Web Design</a>
                 
                 <img src="<c:url value="/resources/images/templatemo_image_02.jpg" />" alt="image 2" />
                 
                 <p>Credits go to <a href="http://www.smashingmagazine.com/2008/09/23/practika-a-free-icon-set/" target="_blank">Smashing Magazine</a> for icons, <a href="http://www.photovaco.com" target="_blank">Free photos</a> for photos, and <a href="http://www.serie3.info/s3slider/" target="_blank">Serie3</a> for the slider. Ut nec vestibulum odio. Vivamus vitae nibh eu sem malesuada rutrum et sit amet magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-              <a href="blog_post.html">Continue reading...</a>
+              <a href="blog_post.jsp">Continue reading...</a>
             
             </div>
 		</div>

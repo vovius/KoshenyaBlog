@@ -17,8 +17,11 @@
 <div id="adminMenu" align="center">
     <table>
         <tr>
-            <td><button onclick="openAdminURL('adminPosts','adminPosts')"><img src="<c:url value="/resources/images/Blog-Post.jpg" />" alt="Blog posts" /></button></td>
-            <td><button onclick="openAdminURL('adminPictures','adminPictures')"><img src="<c:url value="/resources/images/anicons-background-f.jpg" />" alt="Blog images" /></button></td>
+            <td><button onclick="openAdminURL('adminPosts','adminPosts')"><img src="<c:url value="/resources/images/Blog-Post.jpg" />" title="Blog posts" /></button></td>
+            <td><button onclick="openAdminURL('adminPictures','adminPictures')"><img src="<c:url value="/resources/images/anicons-background-f.jpg" />" title="Blog images" /></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="openAdminURL('/koshenyablog/blog/','KoshenyaBlog')"><img src="<c:url value="/resources/images/gotoblog.gif" />" title="Go to Koshenya Blog" /></button></td>
         </tr>
 
     </table>

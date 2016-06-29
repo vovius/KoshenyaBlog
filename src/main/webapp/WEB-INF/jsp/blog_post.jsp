@@ -5,7 +5,7 @@
 <title>Clean Blog Post</title>
 <meta name="keywords" content="clean blog post, 2-column, multi-level, comments, html css layout" />
 <meta name="description" content="Clean Blog Post with multi-level commenting" />
-<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="../../resources/css/templatemo_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -15,9 +15,9 @@
                 
          <ul>
             <li><a href="index.html" class="current">Blog</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../../resources/portfolio.html">Portfolio</a></li>
+            <li><a href="../../resources/about.html">About Us</a></li>
+            <li><a href="../../resources/contact.html">Contact</a></li>
         </ul>   	
     
     </div> <!-- end of templatemo_menu -->
@@ -82,7 +82,7 @@
     
                 December 28, 2048 | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
                 
-                <a href="http://www.templatemo.com/page/1" target="_parent"><img src="images/templatemo_image_01.jpg" alt="image" /></a>
+                <a href="http://www.templatemo.com/page/1" target="_parent"><img src="../../resources/images/templatemo_image_01.jpg" alt="image" /></a>
                 
               <p>Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>. Mauris venenatis quam non nunc convallis tincidunt. Aliquam tempus neque nec nisl pellentesque nec dignissim lorem cursus. Integer cursus ultrices massa non vehicula. <a href="#">Etiam vitae lacus</a> eu arcu rutrum fermentum. Nullam fringilla imperdiet magna, id sagittis nisl feugiat at. </p>
                 <p>Donec eget lacus eros, et blandit odio. Maecenas et urna vitae sapien dictum dapibus. Aliquam id sem metus. Aenean sapien felis, congue porttitor elementum quis, <a href="#">pretium sit amet urna</a>.</p>
@@ -100,7 +100,7 @@
                             <div class="comment_box commentbox1">
                                     
                                 <div class="gravatar">
-                                    <img src="images/avator.png" alt="author" />
+                                    <img src="../../resources/images/avator.png" alt="author" />
                                 </div>
                                 
                                 <div class="comment_text">
@@ -122,7 +122,7 @@
                                         <div class="comment_box commentbox2">
                                         
                                         <div class="gravatar">
-                                        <img src="images/avator.png" alt="author 2" />
+                                        <img src="../../resources/images/avator.png" alt="author 2" />
                                         </div>
                                         <div class="comment_text">
                                         <div class="comment_author">Ethan<span class="date">December 14, 2048</span><span class="time">10:20 AM</span></div>
@@ -145,7 +145,7 @@
                                                 <div class="comment_box commentbox1">
                                                 
                                                     <div class="gravatar">
-                                                        <img src="images/avator.png" alt="author 3" />
+                                                        <img src="../../resources/images/avator.png" alt="author 3" />
                                                     </div>
                                                     <div class="comment_text">
                                                         <div class="comment_author">Walker<span class="date">December 18, 2048</span><span class="time">11:45 PM</span></div>
@@ -171,7 +171,7 @@
                                     
                                      
                                 <div class="gravatar">
-                                    <img src="images/avator.png" alt="author 4" />
+                                    <img src="../../resources/images/avator.png" alt="author 4" />
                                 </div>
                                 <div class="comment_text">
                                     <div class="comment_author">Steve<span class="date">December 24, 2048</span><span class="time">10:55 AM</span></div>
@@ -189,7 +189,7 @@
                             <div class="comment_box commentbox1">
                                     
                                 <div class="gravatar">
-                                    <img src="images/avator.png" alt="author 5" />
+                                    <img src="../../resources/images/avator.png" alt="author 5" />
                                 </div>
                                 <div class="comment_text">
                                     <div class="comment_author">Gates<span class="date">December 28, 2048</span><span class="time">12:00 PM</span></div>

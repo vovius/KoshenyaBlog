@@ -2,8 +2,10 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Administration of Koshenya Blog</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery-ui.css" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/koshenya.css" />" />

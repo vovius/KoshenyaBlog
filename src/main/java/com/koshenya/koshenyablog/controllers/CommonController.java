@@ -35,6 +35,13 @@ public class CommonController {
         return model;
     }
 
+    @RequestMapping(value = "/blog_post/{postId}", method = RequestMethod.GET)
+    public ModelAndView getPostFullView(@PathVariable("postId") int postId) {
+        ModelAndView model = new ModelAndView("blog_post");
+        model.addObject("message", blogDAO.getMessage(postId));
+        return model;
+    }
+
     @RequestMapping(value = "/getPostFile/{postId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getPostFile(@PathVariable("postId") int postId, HttpServletResponse response) throws SQLException, IOException {

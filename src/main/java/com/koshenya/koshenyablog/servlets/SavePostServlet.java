@@ -40,6 +40,7 @@ public class SavePostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Message message = new Message();
         int id = Integer.valueOf(request.getParameter("postId").isEmpty() ? "0" : request.getParameter("postId"));
         message.setId(id);

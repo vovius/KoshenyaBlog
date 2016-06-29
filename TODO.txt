@@ -7,6 +7,9 @@ Admin posts:
 
 Admin pictures:
 
+Blog:
+1. Implement apache tiles for all pages (main blog news, post page)
+
 Done:
 -----
 Admin posts:
