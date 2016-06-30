@@ -15,7 +15,7 @@
 
     <img src='${"getPostFile/".concat(message.id)}' alt="image 1" width="430" height="300" />
 
-    <p>${message.text}</p>
+    <p>${message.getProcessedText()}</p>
 
 </div>
             

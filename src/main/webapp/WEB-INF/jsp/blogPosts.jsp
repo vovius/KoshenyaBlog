@@ -5,6 +5,8 @@
 
 <%@page contentType="text/html;charset=UTF-8"%>
 
+<script type="text/javascript" src="<c:url value="/resources/js/blogPosts.js" />"></script>
+
 <c:forEach items="${messages}" var="message">
     <div class="post_section">
 
@@ -16,7 +18,7 @@
 
         <img src='${"getPostFile/".concat(message.id)}' alt="image 1" width="430" height="300" />
 
-        <p>${message.text}</p>
+        <div id="blogPostsMessageText" name="blogPostsMessageText"><p>${message.getProcessedText()}</p></div>
         <a href="${'blogPost/'.concat(message.id)}">Читати далі...</a>
 
     </div>

@@ -14,6 +14,7 @@
 <meta name="description" content="Cat blog" />
 <link href="<c:url value="/resources/css/templatemo_style.css"/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/s3slider.css" />" rel="stylesheet" type="text/css" />
+<link href="<c:url value="/resources/css/koshenya.css" />" rel="stylesheet" type="text/css" />
 <!-- JavaScripts-->
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/s3Slider.js" />"></script>

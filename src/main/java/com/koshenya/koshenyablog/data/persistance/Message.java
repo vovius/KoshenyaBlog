@@ -1,5 +1,6 @@
 package com.koshenya.koshenyablog.data.persistance;
 
+import com.koshenya.koshenyablog.util.BlogUtils;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -106,5 +107,9 @@ public class Message {
                 ", picture=" + Arrays.toString(picture) +
                 ", visible=" + visible +
                 '}';
+    }
+
+    public String getProcessedText() {
+        return BlogUtils.processMessageText(text);
     }
 }

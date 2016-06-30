@@ -2,14 +2,16 @@ TODO:
 -----
 Admin posts:
 1. Post preview
-4. Image references in the posts
 5. Delete selected posts
-6. Comments to the post
 
 Admin pictures:
 Implement image description
 
 Blog:
+
+Post page:
+6. Comments to the post
+7. Show large image onmouseover
 
 Portfolio:
 Develop view of images library (image with description)
@@ -25,3 +27,4 @@ Admin images:
 
 Blog:
 1. Implement apache tiles for all pages (main blog news, post page)
+4. Image references in the posts

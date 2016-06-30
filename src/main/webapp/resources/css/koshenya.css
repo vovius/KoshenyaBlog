@@ -23,6 +23,13 @@
     padding: 3px;
 }
 
+#blogPostsMessageText {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 430px;
+    display: inline-block;
+}
 
 /* admin form for images library */
 #adminPicturesButtonsMenu {

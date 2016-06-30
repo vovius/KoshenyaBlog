@@ -60,7 +60,7 @@ public class CommonController {
 
     }
 
-    @RequestMapping(value = "/getImage/{imageId}", method = RequestMethod.GET)
+    @RequestMapping(value = "**/getImage/{imageId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getImage(@PathVariable("imageId") int imageId, HttpServletResponse response) throws SQLException, IOException {
         Image image = blogDAO.getImage(imageId);
