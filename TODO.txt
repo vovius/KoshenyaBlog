@@ -1,13 +1,14 @@
 TODO:
 -----
 Admin posts:
-1. Post preview
 5. Delete selected posts
+6. Remove separate servlets implementing Spring MVC saving for file: http://www.journaldev.com/2573/spring-mvc-file-upload-example-single-multiple-files
 
 Admin pictures:
 Implement image description
 
 Blog:
+Fix issue with the ellipsis not showing in the post div
 
 Post page:
 6. Comments to the post
@@ -19,6 +20,7 @@ Develop view of images library (image with description)
 Done:
 -----
 Admin posts:
+1. Post preview
 2. Image column in admin posts
 3. Post visibility turning on/off
 

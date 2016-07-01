@@ -56,6 +56,7 @@
                 <th>Visible</th>
                 <th/>
                 <th/>
+                <th/>
             </tr>
         </thead>
         <tbody>
@@ -71,6 +72,7 @@
                             <c:if test="${message.visible}">checked</c:if>
                         />
                     </td>
+                    <td><input type="button" value="Preview" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="window.open('postPreview/'.concat(${message.id},''));" /></td>
                     <td><input type="button" value="Edit" class="editPost" /></td>
                     <td><input type="button" value="Delete" class="ui-button ui-widget ui-state-default ui-corner-all" /></td>
                 </tr>

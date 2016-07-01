@@ -7,7 +7,7 @@ import java.util.regex.*;
  */
 public class BlogUtils {
 
-    private final static String imagePlaceholder = "<img src='getImage/%d' width=50 height=50 />";
+    public final static String IMAGE_PLACEHOLDER = "<img src='getImage/%d' width=50 height=50 />";
 
     public static String processMessageText(String text) {
 
@@ -29,7 +29,7 @@ public class BlogUtils {
             System.out.println(matcher.group() + ", " + imageId);
 
             if (imageId > 0)
-                text = text.replace(matcher.group(), String.format(imagePlaceholder, imageId));
+                text = text.replace(matcher.group(), String.format(IMAGE_PLACEHOLDER, imageId));
         }
         return text;
     }

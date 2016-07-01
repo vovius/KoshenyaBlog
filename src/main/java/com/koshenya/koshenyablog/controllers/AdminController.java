@@ -54,48 +54,18 @@ public class AdminController {
         return model;
     }
 
-    @RequestMapping(value = "/getPostFile/{postId}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<InputStreamResource> getPostFile(@PathVariable("postId") int postId, HttpServletResponse response) throws SQLException, IOException {
-        Message message = blogDAO.getMessage(postId);
-        if (message == null)
-            return null;
-        InputStream picture = new ByteArrayInputStream(message.getPicture());
-        if (picture == null)
-            return null;
-        String mimeType = "application/octet-stream";
-
-        return ResponseEntity.ok()
-                .contentLength(picture.available())
-                .contentType(MediaType.parseMediaType(mimeType))
-                .body(new InputStreamResource(picture));
-
-    }
-
-    @RequestMapping(value = "/getImage/{imageId}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<InputStreamResource> getImage(@PathVariable("imageId") int imageId, HttpServletResponse response) throws SQLException, IOException {
-        Image image = blogDAO.getImage(imageId);
-        if (image == null)
-            return null;
-        InputStream picture = new ByteArrayInputStream(image.getPicture());
-        if (picture == null)
-            return null;
-        String mimeType = "application/octet-stream";
-
-        return ResponseEntity.ok()
-                .contentLength(picture.available())
-                .contentType(MediaType.parseMediaType(mimeType))
-                .body(new InputStreamResource(picture));
-
-    }
-
     @RequestMapping(value = "/adminPictures/deleteImages", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> deleteImages(@RequestBody AdminPicturesDTO dto) {
-    //public ModelAndView deleteImages(@RequestBody AdminPicturesDTO dto) {
         blogDAO.deleteImages(dto.getImageIds());
         return new ResponseEntity<String>(HttpStatus.OK);
-        //return getAdminPicturesView();
     }
+
+    @RequestMapping(value = "/postPreview/{postId}", method = RequestMethod.GET)
+    public ModelAndView getPostFullView(@PathVariable("postId") int postId) {
+        ModelAndView model = new ModelAndView("blogPost");
+        model.addObject("message", blogDAO.getMessage(postId));
+        return model;
+    }
+
 }

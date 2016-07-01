@@ -22,25 +22,10 @@ import java.sql.SQLException;
  */
 
 @Controller
-@RequestMapping("/blog")
 public class CommonController {
 
     @Autowired
     private BlogDAO blogDAO;
-
-    @RequestMapping("/")
-    public ModelAndView getCommonView() {
-        ModelAndView model = new ModelAndView("blogPosts");
-        model.addObject("messages", blogDAO.getMessages());
-        return model;
-    }
-
-    @RequestMapping(value = "/blogPost/{postId}", method = RequestMethod.GET)
-    public ModelAndView getPostFullView(@PathVariable("postId") int postId) {
-        ModelAndView model = new ModelAndView("blogPost");
-        model.addObject("message", blogDAO.getMessage(postId));
-        return model;
-    }
 
     @RequestMapping(value = "**/getPostFile/{postId}", method = RequestMethod.GET)
     @ResponseBody
