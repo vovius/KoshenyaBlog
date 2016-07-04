@@ -24,6 +24,13 @@
 </div>
             
 <div id="comment_section">
+
+    <table id="#commentsTable">
+        <c:forEach items="${message.commentsAsFlatTree}" var="comment">
+
+        </c:forEach>
+    </table>
+
     <ol class="comments first_level">
         <li>
             <div class="comment_box commentbox1">

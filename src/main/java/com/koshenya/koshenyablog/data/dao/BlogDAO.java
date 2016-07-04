@@ -1,16 +1,15 @@
 package com.koshenya.koshenyablog.data.dao;
 
+import com.koshenya.koshenyablog.data.persistance.Comment;
 import com.koshenya.koshenyablog.data.persistance.Image;
 import com.koshenya.koshenyablog.data.persistance.Message;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Admin on 1/13/2016.
@@ -28,13 +27,25 @@ public class BlogDAO {
 
     @Transactional
     public List<Message> getMessages() {
-        List<Message> list = (List<Message>)sessionFactory.getCurrentSession().createCriteria(Message.class).list();
+
+//        Comparator<Comment> treeComparator = (o1, o2) -> { return o1.compareTo(o2); };
+//
+//        List<Message> list = (List<Message>)sessionFactory.getCurrentSession()
+//                .createCriteria(Message.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+//                .list().stream()
+//                .sorted(treeComparator).collect(Collectors.toList());
+        List<Message> list = (List<Message>)sessionFactory.getCurrentSession()
+                .createCriteria(Message.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .list();
         return list;
     }
 
     @Transactional
     public Message getMessage(int id) {
         Message message = (Message)sessionFactory.getCurrentSession().get(Message.class, id);
+
+        List<Comment> orderedAsTreeComments = message.getCommentsAsFlatTree();
+
         return message;
     }
 

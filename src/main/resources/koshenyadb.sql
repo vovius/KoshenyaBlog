@@ -22,6 +22,16 @@ CREATE TABLE images (
 
 CREATE SEQUENCE images_id START WITH 1 INCREMENT BY 1;
 
+DROP TABLE comments;
 
-INSERT INTO messages VALUES (1, current_timestamp, null, 'header 1', 'test message 1', null);
-INSERT INTO messages VALUES (2, current_timestamp, null, 'header 2', 'test message 2', null);
+CREATE TABLE comments (
+  id INT NOT NULL PRIMARY KEY,
+  id_message INT NOT NULL,
+  created TIMESTAMP NOT NULL,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  text CHARACTER LARGE OBJECT,
+  id_parent INT
+);
+
+CREATE SEQUENCE comments_id START WITH 1 INCREMENT BY 1;

@@ -1,12 +1,17 @@
 package com.koshenya.koshenyablog.data.persistance;
 
 import com.koshenya.koshenyablog.util.BlogUtils;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Admin on 1/13/2016.
@@ -39,6 +44,28 @@ public class Message {
 
     @Column(name="visible")
     private boolean visible;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "message")
+    @Where(clause = "id_parent is null")
+    private Set<Comment> comments;
+
+    public List<Comment> getCommentsAsFlatTree() {
+        List<Comment> list = new LinkedList<Comment>();
+        commentsTreeWalk(list, comments);
+
+        return list;
+    }
+
+    private void commentsTreeWalk(List<Comment> list, Set<Comment> commentsBunch) {
+        commentsBunch.stream().forEach(
+                (action) -> {
+                    list.add(action);
+                    if (!action.getChildComments().isEmpty())
+                        commentsTreeWalk(list, action.getChildComments());
+                }
+        );
+
+    }
 
     public int getId() {
         return id;
@@ -96,6 +123,14 @@ public class Message {
         this.visible = visible;
     }
 
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
@@ -111,5 +146,32 @@ public class Message {
 
     public String getProcessedText() {
         return BlogUtils.processMessageText(text);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        if (id != message.id) return false;
+        if (visible != message.visible) return false;
+        if (!created.equals(message.created)) return false;
+        if (changed != null ? !changed.equals(message.changed) : message.changed != null) return false;
+        if (header != null ? !header.equals(message.header) : message.header != null) return false;
+        return text != null ? text.equals(message.text) : message.text == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + created.hashCode();
+        result = 31 * result + (changed != null ? changed.hashCode() : 0);
+        result = 31 * result + (header != null ? header.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + (visible ? 1 : 0);
+        return result;
     }
 }
