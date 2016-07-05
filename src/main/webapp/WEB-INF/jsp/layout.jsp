@@ -15,8 +15,15 @@
 <link href="<c:url value="/resources/css/templatemo_style.css"/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/s3slider.css" />" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/css/koshenya.css" />" rel="stylesheet" type="text/css" />
+
 <!-- JavaScripts-->
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
+
+<!-- Jquery TreeTable -->
+<%--<script type="text/javascript" src="<c:url value="/resources/js/jquery.treetable.js" />"></script>--%>
+<%--<link href="<c:url value="/resources/css/jquery.treetable.css" />" rel="stylesheet" type="text/css" />--%>
+
+
 <script type="text/javascript" src="<c:url value="/resources/js/s3Slider.js" />"></script>
 <script type="text/javascript">
     $(document).ready(function() {

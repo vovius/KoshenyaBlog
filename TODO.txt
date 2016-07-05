@@ -17,6 +17,11 @@ Post page:
 Portfolio:
 Develop view of images library (image with description)
 
+Users:
+Implement users with the registration info
+
+think about AngularJS
+
 Done:
 -----
 Admin posts:

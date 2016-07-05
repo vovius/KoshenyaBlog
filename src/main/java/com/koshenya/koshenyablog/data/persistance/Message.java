@@ -1,7 +1,9 @@
 package com.koshenya.koshenyablog.data.persistance;
 
+import com.koshenya.koshenyablog.util.BackendHtmlGenerator;
 import com.koshenya.koshenyablog.util.BlogUtils;
 import org.hibernate.annotations.*;
+import org.hibernate.annotations.OrderBy;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -47,6 +49,7 @@ public class Message {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "message")
     @Where(clause = "id_parent is null")
+    @OrderBy(clause = "created")
     private Set<Comment> comments;
 
     public List<Comment> getCommentsAsFlatTree() {
@@ -65,6 +68,10 @@ public class Message {
                 }
         );
 
+    }
+
+    public String getCommentsTreeHtml() {
+        return BackendHtmlGenerator.getHtmlForCommentsSection(comments);
     }
 
     public int getId() {
