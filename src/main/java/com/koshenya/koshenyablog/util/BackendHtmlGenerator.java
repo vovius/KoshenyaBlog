@@ -29,7 +29,7 @@ public class BackendHtmlGenerator {
         "    <div class=\"comment_text\">\n" +
         "      <div class=\"comment_author\">Koshenya<span class=\"date\">%s</span><span class=\"time\">%s</span></div>\n" +
         "      <p>%s</p>\n" +
-        "      <div class=\"reply\"><a href=\"#\">Reply</a></div>\n" +
+        "      <div class=\"reply\"><a href=\"#c\" onclick=\"commentReplyClick(%d)\">Reply</a></div>\n" +
         "    </div>\n" +
         "    <div class=\"cleaner\"></div>\n" +
         "  </div>\n" +
@@ -51,7 +51,8 @@ public class BackendHtmlGenerator {
                         String.format(COMMENT_LI,
                             new SimpleDateFormat("dd-MM-yyyy").format(action.getCreated()),
                             new SimpleDateFormat("HH:mm").format(action.getCreated()),
-                            action.getText()
+                            action.getText(),
+                            action.getId()
                         )
                     );
 

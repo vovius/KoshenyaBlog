@@ -52,22 +52,28 @@ public class Message {
     @OrderBy(clause = "created")
     private Set<Comment> comments;
 
-    public List<Comment> getCommentsAsFlatTree() {
-        List<Comment> list = new LinkedList<Comment>();
-        commentsTreeWalk(list, comments);
-
-        return list;
+    public Comment getCommentById(int commentId) {
+        Comment comment = commentsTreeWalkForId(comments, commentId);
+        return comment;
     }
 
-    private void commentsTreeWalk(List<Comment> list, Set<Comment> commentsBunch) {
-        commentsBunch.stream().forEach(
-                (action) -> {
-                    list.add(action);
-                    if (!action.getChildComments().isEmpty())
-                        commentsTreeWalk(list, action.getChildComments());
-                }
-        );
+    private Comment commentsTreeWalkForId(Set<Comment> comments, int id) {
+        Comment result = null;
+        for (Comment comment : comments) {
 
+            if (result != null)
+                break;
+
+            if (comment.getId() == id) {
+                result = comment;
+                break;
+            }
+
+            if (!comment.getChildComments().isEmpty())
+                result = commentsTreeWalkForId(comment.getChildComments(), id);
+        }
+
+        return result;
     }
 
     public String getCommentsTreeHtml() {

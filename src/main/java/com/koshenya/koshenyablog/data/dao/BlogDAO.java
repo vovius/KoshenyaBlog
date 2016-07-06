@@ -27,13 +27,6 @@ public class BlogDAO {
 
     @Transactional
     public List<Message> getMessages() {
-
-//        Comparator<Comment> treeComparator = (o1, o2) -> { return o1.compareTo(o2); };
-//
-//        List<Message> list = (List<Message>)sessionFactory.getCurrentSession()
-//                .createCriteria(Message.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
-//                .list().stream()
-//                .sorted(treeComparator).collect(Collectors.toList());
         List<Message> list = (List<Message>)sessionFactory.getCurrentSession()
                 .createCriteria(Message.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
@@ -43,8 +36,6 @@ public class BlogDAO {
     @Transactional
     public Message getMessage(int id) {
         Message message = (Message)sessionFactory.getCurrentSession().get(Message.class, id);
-
-        List<Comment> orderedAsTreeComments = message.getCommentsAsFlatTree();
 
         return message;
     }
@@ -58,6 +49,21 @@ public class BlogDAO {
         session.close();
     }
 
+
+    @Transactional
+    public Comment getComment(int id) {
+        Comment comment = (Comment)sessionFactory.getCurrentSession().get(Comment.class, id);
+        return comment;
+    }
+
+    @Transactional
+    public void saveComment(Comment comment) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.saveOrUpdate(comment);
+        transaction.commit();
+        session.close();
+    }
 
     @Transactional
     public List<Image> getImages() {

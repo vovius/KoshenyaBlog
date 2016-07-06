@@ -36,6 +36,18 @@ public class Comment implements Comparable<Comment> {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "parentComment")
     private Set<Comment> childComments = new HashSet<Comment>();
 
+    public Comment() {}
+
+    public Comment(Builder builder) {
+        this.id = builder.id;
+        this.message = builder.message;
+        this.created = builder.created;
+        this.name = builder.name;
+        this.email = builder.email;
+        this.text = builder.text;
+        this.parentComment = builder.parentComment;
+    }
+
     public int getId() {
         return id;
     }
@@ -151,4 +163,54 @@ public class Comment implements Comparable<Comment> {
 
         return 0;
     }
-}
+
+    public static class Builder {
+
+        private int id;
+        private Message message;
+        private Timestamp created;
+        private String name;
+        private String email;
+        private String text;
+        private Comment parentComment;
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder message(Message message) {
+            this.message = message;
+            return this;
+        }
+
+        public Builder created(Timestamp created) {
+            this.created = created;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+        public Builder parentComment(Comment parentComment) {
+            this.parentComment = parentComment;
+            return this;
+        }
+
+        public Comment build() {
+            return new Comment(this);
+        }
+    }
+ }
