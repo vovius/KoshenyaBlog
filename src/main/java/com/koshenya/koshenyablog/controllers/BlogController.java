@@ -66,7 +66,7 @@ public class BlogController {
 
         blogDAO.saveComment(comment);
 
-        response.sendRedirect(String.valueOf(postId).concat("#c"));
+        response.sendRedirect(String.valueOf(postId).concat("#c" + comment.getId()));
     }
 
 }

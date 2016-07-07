@@ -14,9 +14,10 @@ Implement DB console to perform any DB operation
 Blog:
 Fix issue with the ellipsis not showing in the post div
 
-Post page:
+Blog post page:
 6. Comments to the post
 7. Show large image onmouseover
+8. Reply to comment - show div with info on which comment with the ability to remove
 
 Portfolio:
 Develop view of images library (image with description)

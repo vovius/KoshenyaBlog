@@ -60,9 +60,12 @@ public class BlogDAO {
     public void saveComment(Comment comment) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(comment);
+        session.save(comment);
         transaction.commit();
         session.close();
+
+        //sessionFactory.getCache().evictCollectionRegions();
+        sessionFactory.getCache().evict(comment.getMessage().getClass(), comment.getMessage().getId());
     }
 
     @Transactional

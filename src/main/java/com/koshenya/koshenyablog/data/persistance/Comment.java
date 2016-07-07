@@ -1,11 +1,18 @@
 package com.koshenya.koshenyablog.data.persistance;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "comments")
 public class Comment implements Comparable<Comment> {
     @Column @Id
@@ -34,6 +41,7 @@ public class Comment implements Comparable<Comment> {
     private Comment parentComment;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "parentComment")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Comment> childComments = new HashSet<Comment>();
 
     public Comment() {}

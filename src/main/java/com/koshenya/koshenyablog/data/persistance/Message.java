@@ -3,6 +3,7 @@ package com.koshenya.koshenyablog.data.persistance;
 import com.koshenya.koshenyablog.util.BackendHtmlGenerator;
 import com.koshenya.koshenyablog.util.BlogUtils;
 import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.OrderBy;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ import java.util.Set;
  */
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name="messages")
 public class Message {
 
@@ -50,6 +52,7 @@ public class Message {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "message")
     @Where(clause = "id_parent is null")
     @OrderBy(clause = "created")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Comment> comments;
 
     public Comment getCommentById(int commentId) {
