@@ -41,10 +41,10 @@
 	<div id="templatemo_menu">
                 
         <ul>
-            <li><a href="index.html" class="current">Blog</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/blog/" class="current">Блог</a></li>
+            <li><a href="${pageContext.request.contextPath}/blogPortfolio/">Галерея</a></li>
+            <li><a href="about.html">Про мене</a></li>
+            <li><a href="contact.html">Контакти</a></li>
         </ul>	
     
     </div> <!-- end of templatemo_menu -->

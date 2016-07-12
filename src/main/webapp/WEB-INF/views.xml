@@ -14,4 +14,9 @@
         <put-attribute name="body" value="/WEB-INF/jsp/blogPost.jsp" />
     </definition>
 
+    <definition name="blogPortfolio" extends="base.definition">
+        <put-attribute name="title" value="Post" />
+        <put-attribute name="body" value="/WEB-INF/jsp/blogPortfolio.jsp" />
+    </definition>
+
 </tiles-definitions>

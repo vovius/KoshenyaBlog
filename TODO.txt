@@ -6,16 +6,18 @@ Admin posts:
 7. Remove/change post comments
 
 Admin pictures:
-Implement image description
+1. Implement image description
+2. Import image from Instagram
 
 Admin main page:
 Implement DB console to perform any DB operation
 
 Blog:
-Fix issue with the ellipsis not showing in the post div
+2. Fix issue with the ellipsis not showing in the post div
+3. Implement calendar with the ability to filter posts by date range
+
 
 Blog post page:
-6. Comments to the post
 7. Show large image onmouseover
 8. Reply to comment - show div with info on which comment with the ability to remove
 
@@ -23,7 +25,8 @@ Portfolio:
 Develop view of images library (image with description)
 
 Users:
-Implement users with the registration info
+1. Implement users with the registration info
+2. Registration from Facebook
 
 Other:
 think about AngularJS
@@ -46,3 +49,6 @@ Admin images:
 Blog:
 1. Implement apache tiles for all pages (main blog news, post page)
 4. Image references in the posts
+
+Blog post page:
+6. Comments to the post

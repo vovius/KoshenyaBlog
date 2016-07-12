@@ -1,5 +1,12 @@
 package com.koshenya.koshenyablog.util;
 
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.regex.*;
 
 /**
@@ -32,5 +39,18 @@ public class BlogUtils {
                 text = text.replace(matcher.group(), String.format(IMAGE_PLACEHOLDER, imageId));
         }
         return text;
+    }
+
+    public static ResponseEntity<InputStreamResource> getImageStreamFromBytesToResponse(byte[] source) throws IOException {
+        InputStream image = new ByteArrayInputStream(source);
+        if (image == null)
+            return null;
+        String mimeType = "application/octet-stream";
+
+        return ResponseEntity.ok()
+                .contentLength(image.available())
+                .contentType(MediaType.parseMediaType(mimeType))
+                .body(new InputStreamResource(image));
+
     }
 }

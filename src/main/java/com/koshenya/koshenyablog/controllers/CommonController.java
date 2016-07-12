@@ -3,6 +3,7 @@ package com.koshenya.koshenyablog.controllers;
 import com.koshenya.koshenyablog.data.dao.BlogDAO;
 import com.koshenya.koshenyablog.data.persistance.Image;
 import com.koshenya.koshenyablog.data.persistance.Message;
+import com.koshenya.koshenyablog.util.BlogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -33,16 +34,8 @@ public class CommonController {
         Message message = blogDAO.getMessage(postId);
         if (message == null)
             return null;
-        InputStream picture = new ByteArrayInputStream(message.getPicture());
-        if (picture == null)
-            return null;
-        String mimeType = "application/octet-stream";
 
-        return ResponseEntity.ok()
-                .contentLength(picture.available())
-                .contentType(MediaType.parseMediaType(mimeType))
-                .body(new InputStreamResource(picture));
-
+        return BlogUtils.getImageStreamFromBytesToResponse(message.getPicture());
     }
 
     @RequestMapping(value = "**/getImage/{imageId}", method = RequestMethod.GET)
@@ -51,16 +44,8 @@ public class CommonController {
         Image image = blogDAO.getImage(imageId);
         if (image == null)
             return null;
-        InputStream picture = new ByteArrayInputStream(image.getPicture());
-        if (picture == null)
-            return null;
-        String mimeType = "application/octet-stream";
 
-        return ResponseEntity.ok()
-                .contentLength(picture.available())
-                .contentType(MediaType.parseMediaType(mimeType))
-                .body(new InputStreamResource(picture));
-
+        return BlogUtils.getImageStreamFromBytesToResponse(image.getPicture());
     }
 
 }

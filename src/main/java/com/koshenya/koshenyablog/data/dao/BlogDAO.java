@@ -28,7 +28,10 @@ public class BlogDAO {
     @Transactional
     public List<Message> getMessages() {
         List<Message> list = (List<Message>)sessionFactory.getCurrentSession()
-                .createCriteria(Message.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .createCriteria(Message.class)
+                .addOrder(Order.desc("created"))
+                .setCacheable(true)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
         return list;
     }
@@ -70,8 +73,9 @@ public class BlogDAO {
 
     @Transactional
     public List<Image> getImages() {
-        List<Image> list = (List<Image>)sessionFactory.getCurrentSession().createCriteria(Image.class)
-                .addOrder(Order.asc("id"))
+        List<Image> list = (List<Image>)sessionFactory.getCurrentSession()
+                .createCriteria(Image.class)
+                .addOrder(Order.desc("created"))
                 .list();
         return list;
     }
