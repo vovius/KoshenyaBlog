@@ -5,6 +5,10 @@
       <identifier-quote-string>&quot;</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
-    <schema name="APP" catalog=""/>
+    <database-model serializer="dbm" rdbms="DERBY" format-version="2.6">
+      <schema id="1" name="APP">
+        <visible>1</visible>
+      </schema>
+    </database-model>
   </data-source>
 </component>

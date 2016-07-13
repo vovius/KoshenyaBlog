@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by Admin on 1/13/2016.
@@ -77,6 +76,7 @@ public class BlogDAO {
                 .createCriteria(Image.class)
                 .addOrder(Order.desc("created"))
                 .list();
+
         return list;
     }
 

@@ -2,12 +2,8 @@ package com.koshenya.koshenyablog.controllers;
 
 import com.koshenya.koshenyablog.data.dao.BlogDAO;
 import com.koshenya.koshenyablog.data.dto.AdminPicturesDTO;
-import com.koshenya.koshenyablog.data.persistance.Image;
-import com.koshenya.koshenyablog.data.persistance.Message;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
 
 /**
  * Created by Admin on 1/20/2016.

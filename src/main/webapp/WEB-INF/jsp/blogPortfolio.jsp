@@ -11,7 +11,7 @@
         <c:forEach items="${images}" var="image">
             <li>
                 <div class="left">
-                    <a href="" class="pirobox" title="Project 1"><img src="${image.picture}" alt="${image.id}" /></a>
+                    <a href="" class="pirobox" title="Project 1"><img src="${"getImage/".concat(image.id)}" alt="${image.id}" /></a>
                 </div>
                 <div class="right">
                     <%--<h5>Project 1</h5>--%>
