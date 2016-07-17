@@ -1,7 +1,7 @@
 // clearing the dialog
 $(document).ready(function(){
-    document.getElementById("picture").value = '';
-    document.getElementById("pictureFile").src = '';
+    document.getElementById("dialogPicture").value = '';
+    document.getElementById("dialogPictureFile").src = '';
 });
 
 // Create post dialog
@@ -45,8 +45,8 @@ $(function() {
 
     $("#addImage").button().on("click", function () {
         $("#dialogAddImage").dialog("option", "title", "Add image");
-        document.getElementById("picture").value = '';
-        document.getElementById("pictureFile").src = '';
+        document.getElementById("dialogPicture").value = '';
+        document.getElementById("dialogPictureFile").src = '';
         dialog.dialog("open");
     });
 
@@ -54,6 +54,17 @@ $(function() {
     $('.imageCheck').click(function() {
         this.setAttribute('checked',this.checked);
     });
+
+    $('.editImage').dblclick(function () {
+        var rowCells = $(this).parent().parent().parent().find('td');
+        var imageId = $(rowCells).find('#tblImageId').attr('value')
+        document.getElementById('dialogImageId').value = imageId;
+        document.getElementById('dialogImageDescription').value = $(rowCells).find('#tblImageDescription').attr('value');
+        document.getElementById('dialogImageCreated').value = $(rowCells).find('#tblCreated').attr('value');
+        document.getElementById('dialogPictureFile').src = "getImage/" + imageId;
+        dialog.dialog("open");
+    })
+
 
 });
 
@@ -63,7 +74,7 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#pictureFile').attr('src', e.target.result);
+            $('#dialogPictureFile').attr('src', e.target.result);
         };
 
         reader.readAsDataURL(input.files[0]);

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 @WebServlet("/admin/addImageServlet")
 @MultipartConfig
@@ -37,12 +38,24 @@ public class AddImageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Part filePart = request.getPart("picture");
+        Part filePart = request.getPart("dialogPicture");
         if (filePart != null && filePart.getSize() > 0) {
+
             Image image = new Image();
-            image.setCreated(new Timestamp(System.currentTimeMillis()));
-            image.setDescription((String) request.getParameter("imageDescription"));
+            int id = Integer.valueOf(request.getParameter("dialogImageId").isEmpty() ? "0" : request.getParameter("dialogImageId"));
+            image.setId(id);
+
+            if (id == 0)
+                image.setCreated(new Timestamp(System.currentTimeMillis()));
+            else {
+                try {
+                    image.setCreated(new Timestamp(new SimpleDateFormat("dd-mm-yyyy hh:mm").parse(request.getParameter("dialogImageCreated")).getTime()));
+                }catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            image.setDescription((String) request.getParameter("dialogImageDescription"));
             image.setPicture(IOUtils.toByteArray(filePart.getInputStream()));
 
             blogDAO.saveImage(image);

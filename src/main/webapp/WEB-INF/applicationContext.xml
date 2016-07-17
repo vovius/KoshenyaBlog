@@ -93,4 +93,10 @@
         <property name="maxUploadSize" value="5000000" />
     </bean>
 
+    <bean id="human" class="com.koshenya.koshenyablog.Human" />
+
+    <bean id="koshenya" class="com.koshenya.koshenyablog.Koshenya">
+        <property name="owner" ref="human" />
+    </bean>
+
 </beans>
