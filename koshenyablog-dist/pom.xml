@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.koshenya</groupId>
+        <artifactId>koshenyablog</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <groupId>com.koshenya</groupId>
+    <artifactId>koshenyablog-dist</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.koshenya</groupId>
+            <artifactId>koshenyablog-webapp</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.koshenya</groupId>
+            <artifactId>koshenyablog-config</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
+        <version.maven-war-plugin>2.6</version.maven-war-plugin>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.maven-war-plugin}</version>
+                <configuration>
+                    <archiveClasses>true</archiveClasses>
+                    <warSourceDirectory>webapp</warSourceDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                    <webResources>
+                        <resource>
+                            <directory>${project.parent.basedir}/koshenyablog-webapp/src/main/webapp</directory>
+                        </resource>
+                        <resource>
+                            <directory>${project.parent.basedir}/koshenyablog-webapp/target/classes</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                            <excludes>
+                                <exclude>hibernate.properties</exclude>
+                                <exclude>myehcache.xml</exclude>
+                            </excludes>
+                        </resource>
+                        <resource>
+                            <directory>${project.parent.basedir}/koshenyablog-config/resources/</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                            <includes>
+                                <include>*.*</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                    <webXml>${project.parent.basedir}/koshenyablog-webapp/src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exploded</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

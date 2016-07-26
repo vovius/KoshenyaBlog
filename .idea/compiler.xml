@@ -22,11 +22,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="koshenyablog" />
+        <module name="koshenyablog-config" />
+        <module name="koshenyablog-dist" />
+        <module name="koshenyablog-webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="koshenyablog" target="1.8" />
+      <module name="koshenyablog" target="1.5" />
+      <module name="koshenyablog-config" target="1.5" />
+      <module name="koshenyablog-dist" target="1.5" />
+      <module name="koshenyablog-webapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

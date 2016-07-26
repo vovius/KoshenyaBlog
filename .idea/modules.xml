@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/koshenyablog.iml" filepath="$PROJECT_DIR$/koshenyablog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/koshenyablog-config/koshenyablog-config.iml" filepath="$PROJECT_DIR$/koshenyablog-config/koshenyablog-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/koshenyablog-dist/koshenyablog-dist.iml" filepath="$PROJECT_DIR$/koshenyablog-dist/koshenyablog-dist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/koshenyablog-webapp/koshenyablog-webapp.iml" filepath="$PROJECT_DIR$/koshenyablog-webapp/koshenyablog-webapp.iml" />
     </modules>
   </component>
 </project>
