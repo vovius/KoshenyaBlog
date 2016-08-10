@@ -57,6 +57,7 @@
                             <excludes>
                                 <exclude>hibernate.properties</exclude>
                                 <exclude>myehcache.xml</exclude>
+                                <exclude>log4j.properties</exclude>
                             </excludes>
                         </resource>
                         <resource>
