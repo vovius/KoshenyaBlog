@@ -1,0 +1,38 @@
+/* admin main page */
+#adminMenu > table img {
+    width: 200px;
+    height: 200px;
+}
+
+/* admin form with posts */
+#tblPosts {
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+#tblPosts th, #tblPosts td {
+    padding: 3px;
+    border: 1px solid black;
+}
+
+#tblPosts th {
+    background: #b0e0e6;
+}
+
+#divButtonCreatePost {
+    padding: 3px;
+}
+
+#blogPostsMessageText {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 430px;
+    display: inline-block;
+}
+
+/* admin form for images library */
+#adminPicturesButtonsMenu {
+    border: 1px solid black;
+    padding: 3px;
+}
