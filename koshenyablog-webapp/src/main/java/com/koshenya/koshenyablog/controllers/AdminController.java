@@ -2,15 +2,25 @@ package com.koshenya.koshenyablog.controllers;
 
 import com.koshenya.koshenyablog.data.dao.BlogDAO;
 import com.koshenya.koshenyablog.data.dto.AdminPicturesDTO;
+import com.koshenya.koshenyablog.data.persistance.Image;
+import com.koshenya.koshenyablog.data.persistance.Message;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import java.io.InputStream;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Admin on 1/20/2016.
@@ -59,4 +69,76 @@ public class AdminController {
         return model;
     }
 
+    @RequestMapping(value = "/savePostServlet", method = RequestMethod.POST)
+    public void savePost(
+            HttpServletRequest request, HttpServletResponse response,
+            @RequestParam(name = "postHeader") String postHeader,
+            @RequestParam(name = "postText") String postText,
+            @RequestParam(name = "picture") CommonsMultipartFile picture) throws Exception {
+
+        request.setCharacterEncoding("UTF-8");
+        Message message = new Message();
+        int id = Integer.valueOf(request.getParameter("postId").isEmpty() ? "0" : request.getParameter("postId"));
+        message.setId(id);
+        if (id == 0)
+            message.setCreated(new Timestamp(System.currentTimeMillis()));
+        else {
+            try {
+                message.setCreated(new Timestamp(new SimpleDateFormat("dd-mm-yyyy hh:mm").parse(request.getParameter("created")).getTime()));
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+            message.setChanged(new Timestamp(System.currentTimeMillis()));
+        }
+
+        message.setHeader(postHeader);
+        message.setText(postText);
+
+        if (request.getParameter("isVisible") != null)
+            message.setVisible(Boolean.TRUE);
+
+        if (picture != null) {
+            if (picture.getSize() > 0)
+                message.setPicture(IOUtils.toByteArray(picture.getInputStream()));
+            else {
+                Message oldMessage = blogDAO.getMessage(id);
+                if (oldMessage != null)
+                    message.setPicture(oldMessage.getPicture());
+            }
+        }
+
+        blogDAO.saveMessage(message);
+
+        response.sendRedirect("adminPosts");
+    }
+
+
+    @RequestMapping(value = "/addImageServlet", method = RequestMethod.POST)
+    public void addImage(
+            HttpServletRequest request, HttpServletResponse response,
+            @RequestParam(name="dialogPicture") CommonsMultipartFile dialogPicture) throws Exception {
+        if (dialogPicture != null && dialogPicture.getSize() > 0) {
+
+            Image image = new Image();
+            int id = Integer.valueOf(request.getParameter("dialogImageId").isEmpty() ? "0" : request.getParameter("dialogImageId"));
+            image.setId(id);
+
+            if (id == 0)
+                image.setCreated(new Timestamp(System.currentTimeMillis()));
+            else {
+                try {
+                    image.setCreated(new Timestamp(new SimpleDateFormat("dd-mm-yyyy hh:mm").parse(request.getParameter("dialogImageCreated")).getTime()));
+                }catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            image.setDescription((String) request.getParameter("dialogImageDescription"));
+            image.setPicture(IOUtils.toByteArray(dialogPicture.getInputStream()));
+
+            blogDAO.saveImage(image);
+        }
+
+        response.sendRedirect("adminPictures");
+    }
 }

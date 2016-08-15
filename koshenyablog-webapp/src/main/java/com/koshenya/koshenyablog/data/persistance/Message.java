@@ -22,7 +22,7 @@ import java.util.Set;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name="messages")
+@Table(name="messages", schema = "ROOT")
 public class Message {
 
     @Column @Id

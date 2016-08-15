@@ -39,8 +39,20 @@
 
 
 
-    <context:property-placeholder location="classpath:hibernate.properties" />
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:common.properties</value>
+                <value>classpath:hibernate.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <context:annotation-config />
     <context:component-scan base-package="com.koshenya.koshenyablog" />
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
@@ -55,8 +67,9 @@
         <property name="password" value="${connection.password}"/>
     </bean>
 
-    <bean id="flywayTracker" class="com.koshenya.koshenyablog.data.dbversioning.FlywayTracker" depends-on="dataSource">
+    <bean id="flywayTracker" class="com.koshenya.koshenyablog.data.dbversioning.FlywayTracker">
         <constructor-arg ref="dataSource" />
+        <constructor-arg value="${track_schema}" />
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" depends-on="flywayTracker">
@@ -89,5 +102,6 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="5000000" />
     </bean>
+
 
 </beans>

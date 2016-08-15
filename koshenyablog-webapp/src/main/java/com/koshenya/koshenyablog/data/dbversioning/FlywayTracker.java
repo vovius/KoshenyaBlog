@@ -1,5 +1,6 @@
 package com.koshenya.koshenyablog.data.dbversioning;
 
+import org.apache.log4j.Logger;
 import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,22 +15,25 @@ import java.sql.Statement;
  */
 public class FlywayTracker {
 
-    private final static String TRACK_SCHEMA = "track_schema";
-    private final static String CREATE_SCHEMA_SQL = "CREATE SCHEMA root;";
+    private final static Logger log = Logger.getLogger(FlywayTracker.class);
+
+    private final static String CREATE_SCHEMA_SQL = "CREATE SCHEMA ROOT";
 
     private DataSource dataSource;
 
-    public FlywayTracker(DataSource dataSource) {
+    private boolean trackSchema;
+
+    public FlywayTracker(DataSource dataSource, boolean trackSchema) {
 
         this.dataSource = dataSource;
+        this.trackSchema = trackSchema;
 
-        String trackSchema = System.getProperty(TRACK_SCHEMA);
-        if ("true".equals(trackSchema)) {
+        if (trackSchema) {
             try {
                 init();
                 migrate();
             } catch (Exception e) {
-                System.err.println("Failed to load resource: " + e.getStackTrace().toString());
+                System.err.println("Failed to load resource: " + e);
             }
         }
 
@@ -40,8 +44,13 @@ public class FlywayTracker {
             // Execute schema create script
             Statement statement = connection.createStatement();
             statement.execute(CREATE_SCHEMA_SQL);
+
+            log.info("Successfully created schema ROOT");
+
         } catch (SQLException e) {
             // nothing to do, schema exists
+            log.info("Schema ROOT already exists!\n" );
+            e.printStackTrace();
         }
     }
 
@@ -50,5 +59,9 @@ public class FlywayTracker {
         flyway.setDataSource(dataSource);
         flyway.setLocations("classpath:db");
         flyway.migrate();
+    }
+
+    public void setTrackSchema(boolean trackSchema) {
+        this.trackSchema = trackSchema;
     }
 }

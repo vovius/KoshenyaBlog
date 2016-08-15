@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="koshenyablog-dist:war">
     <output-path>$PROJECT_DIR$/koshenyablog-dist/target</output-path>
-    <root id="archive" name="koshenyablog-dist-1.0.war">
+    <root id="archive" name="koshenyablog.war">
       <element id="artifact" artifact-name="koshenyablog-dist:war exploded" />
     </root>
   </artifact>

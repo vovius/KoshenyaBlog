@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "images")
+@Table(name = "images", schema = "ROOT")
 public class Image {
 
     @Column

@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "comments")
+@Table(name = "comments", schema = "ROOT")
 public class Comment implements Comparable<Comment> {
     @Column @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comments_id")

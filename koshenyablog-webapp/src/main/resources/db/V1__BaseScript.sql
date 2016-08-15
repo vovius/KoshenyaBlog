@@ -1,4 +1,3 @@
-CREATE SCHEMA root;
 SET SCHEMA root;
 
 CREATE TABLE messages (
