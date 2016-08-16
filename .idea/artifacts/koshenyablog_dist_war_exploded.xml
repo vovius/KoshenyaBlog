@@ -7,7 +7,7 @@
           <element id="module-output" name="koshenyablog-dist" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="koshenyablog-webapp-1.0.jar">
+          <element id="archive" name="koshenyablog-webapp-1.0-classes.jar">
             <element id="module-output" name="koshenyablog-webapp" />
           </element>
           <element id="archive" name="koshenyablog-config-1.0.jar">

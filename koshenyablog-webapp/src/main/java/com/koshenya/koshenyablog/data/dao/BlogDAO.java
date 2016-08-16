@@ -20,8 +20,8 @@ public class BlogDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
+    public void shutdownDB() {
+
     }
 
     @Transactional
@@ -66,7 +66,6 @@ public class BlogDAO {
         transaction.commit();
         session.close();
 
-        //sessionFactory.getCache().evictCollectionRegions();
         sessionFactory.getCache().evict(comment.getMessage().getClass(), comment.getMessage().getId());
     }
 

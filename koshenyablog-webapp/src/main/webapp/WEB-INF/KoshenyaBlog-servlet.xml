@@ -72,7 +72,7 @@
         <constructor-arg value="${track_schema}" />
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" depends-on="flywayTracker">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" depends-on="flywayTracker" destroy-method="destroy">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
@@ -97,7 +97,7 @@
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    <bean id="blogDAO" class="com.koshenya.koshenyablog.data.dao.BlogDAO" />
+    <bean id="blogDAO" class="com.koshenya.koshenyablog.data.dao.BlogDAO" destroy-method="shutdownDB" />
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="5000000" />

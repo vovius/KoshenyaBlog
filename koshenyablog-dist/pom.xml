@@ -20,6 +20,7 @@
             <groupId>com.koshenya</groupId>
             <artifactId>koshenyablog-webapp</artifactId>
             <version>${project.parent.version}</version>
+            <classifier>classes</classifier>
         </dependency>
         <dependency>
             <groupId>com.koshenya</groupId>
