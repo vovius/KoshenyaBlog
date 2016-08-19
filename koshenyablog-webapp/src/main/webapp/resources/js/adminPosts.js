@@ -62,6 +62,10 @@ $(function() {
         dialog.dialog("open");
     });
 
+    $('.deletePost').button().on('click', function () {
+
+    });
+
 });
 
 // image refreshing
@@ -76,3 +80,4 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 };
+

@@ -141,4 +141,5 @@ public class AdminController {
 
         response.sendRedirect("adminPictures");
     }
+
 }
