@@ -63,7 +63,18 @@ $(function() {
     });
 
     $('.deletePost').button().on('click', function () {
-
+        var rowCells = $(this).parent().parent().find('td');
+        var postId = rowCells.eq(1).text();
+        var doDelete = confirm('Delete post?');
+        if (doDelete == true) {
+            $.ajax({
+                type: 'POST',
+                url: 'adminPosts/deletePost/'.concat(postId),
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
     });
 
 });

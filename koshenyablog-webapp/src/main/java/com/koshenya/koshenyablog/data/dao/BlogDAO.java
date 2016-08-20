@@ -53,6 +53,24 @@ public class BlogDAO {
 
 
     @Transactional
+    public void deletePosts(List<Integer> ids) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query query = session.createQuery("delete from Message where id in (:ids)");
+            query.setParameterList("ids", ids);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+
+    @Transactional
     public Comment getComment(int id) {
         Comment comment = (Comment)sessionFactory.getCurrentSession().get(Comment.class, id);
         return comment;

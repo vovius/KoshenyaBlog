@@ -21,6 +21,7 @@ import javax.servlet.http.Part;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 /**
  * Created by Admin on 1/20/2016.
@@ -142,4 +143,9 @@ public class AdminController {
         response.sendRedirect("adminPictures");
     }
 
+    @RequestMapping(value = "/adminPosts/deletePost/{postId}", method = RequestMethod.POST)
+    public ResponseEntity<String> deletePost(@PathVariable("postId") int postId) {
+        blogDAO.deletePosts(Arrays.asList(new Integer[]{postId}));
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
 }
