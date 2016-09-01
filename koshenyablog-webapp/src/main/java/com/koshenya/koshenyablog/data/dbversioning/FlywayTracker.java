@@ -50,7 +50,9 @@ public class FlywayTracker {
         } catch (SQLException e) {
             // nothing to do, schema exists
             log.info("Schema ROOT already exists!\n" );
-            e.printStackTrace();
+            if (log.isTraceEnabled()) {
+                e.printStackTrace();
+            }
         }
     }
 

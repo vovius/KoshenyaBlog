@@ -7,9 +7,23 @@
 
 <script type="text/javascript" src="<c:url value="/resources/js/blogPost.js" />" ></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({ cache: true });
+        $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+            FB.init({
+                appId: 'koshenyablog-webapp',
+                version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+            });
+            $('#loginbutton, #feedbutton').removeAttr('disabled');
+            FB.getLoginStatus(updateStatusCallback);
+        });
+    });
+</script>
+
 <div class="post_section">
 
-    <span class="comment"><a href="fullpost.html">256</a></span>
+    <span class="comment"><a href="fullpost.html">${message.comments.size()}</a></span>
 
     <h2>${message.header}</h2>
 
@@ -32,6 +46,8 @@
 <div id="comment_form">
     <a name="c"></a>
     <h3>Leave a comment</h3>
+
+    <%--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>--%>
 
     <form id="formAddComment" name="formAddComment" action="addComment" method="post">
         <input type="hidden" value="${message.id}" name="postId" />

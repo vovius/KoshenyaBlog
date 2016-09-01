@@ -8,5 +8,4 @@
         <put-attribute name="title" value="Koshenya Blog" />
         <put-attribute name="body" value="" />
     </definition>
-
 </tiles-definitions>

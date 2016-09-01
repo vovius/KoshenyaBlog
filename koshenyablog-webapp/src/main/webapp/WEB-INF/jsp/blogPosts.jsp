@@ -11,7 +11,7 @@
     <c:if test="${message.visible}">
         <div class="post_section">
 
-            <span class="comment"><a href="${'blogPost/'.concat(message.id)}">128</a></span>
+            <span class="comment"><a href="${'blogPost/'.concat(message.id)}">${message.comments.size()}</a></span>
 
             <h2><a href="${'blogPost/'.concat(message.id)}">${message.header}</a></h2>
 

@@ -7,16 +7,31 @@
     <definition name="blogPosts" extends="base.definition">
         <put-attribute name="title" value="Koshenya Blog" />
         <put-attribute name="body" value="/WEB-INF/jsp/blogPosts.jsp" />
+        <put-attribute name="tileId" value="blogPosts" />
     </definition>
 
     <definition name="blogPost" extends="base.definition">
         <put-attribute name="title" value="Post" />
         <put-attribute name="body" value="/WEB-INF/jsp/blogPost.jsp" />
+        <put-attribute name="tileId" value="blogPost" />
     </definition>
 
     <definition name="blogPortfolio" extends="base.definition">
-        <put-attribute name="title" value="Post" />
+        <put-attribute name="title" value="Portfolio" />
         <put-attribute name="body" value="/WEB-INF/jsp/blogPortfolio.jsp" />
+        <put-attribute name="tileId" value="blogPortfolio" />
+    </definition>
+
+    <definition name="blogAbout" extends="base.definition">
+        <put-attribute name="title" value="About" />
+        <put-attribute name="body" value="/WEB-INF/jsp/blogAbout.jsp" />
+        <put-attribute name="tileId" value="blogAbout" />
+    </definition>
+
+    <definition name="blogContact" extends="base.definition">
+        <put-attribute name="title" value="Contacts" />
+        <put-attribute name="body" value="/WEB-INF/jsp/blogContact.jsp" />
+        <put-attribute name="tileId" value="blogContact" />
     </definition>
 
 </tiles-definitions>

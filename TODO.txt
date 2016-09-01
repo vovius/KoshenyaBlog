@@ -2,7 +2,6 @@ TODO:
 -----
 Admin posts:
 5. Delete selected posts
-6. Remove separate servlets implementing Spring MVC saving for file: http://www.journaldev.com/2573/spring-mvc-file-upload-example-single-multiple-files
 7. Remove/change post comments
 
 Admin pictures:
@@ -42,6 +41,7 @@ Admin posts:
 1. Post preview
 2. Image column in admin posts
 3. Post visibility turning on/off
+6. Remove separate servlets implementing Spring MVC saving for file: http://www.journaldev.com/2573/spring-mvc-file-upload-example-single-multiple-files
 
 Admin images:
 1. Delete picture (current and selected)

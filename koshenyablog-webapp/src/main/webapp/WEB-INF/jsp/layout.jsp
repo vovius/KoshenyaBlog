@@ -18,6 +18,8 @@
 
 <!-- JavaScripts-->
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/layout.js" />"></script>
+
 
 <!-- Jquery TreeTable -->
 <%--<script type="text/javascript" src="<c:url value="/resources/js/jquery.treetable.js" />"></script>--%>
@@ -30,21 +32,33 @@
         $('#slider').s3Slider({
             timeOut: 1600
         });
+
+        mainMenuProcessor();
     });
 </script>
 
 </head>
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.7&appId=920780774716956";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="templatemo_wrapper">
 
 	<div id="templatemo_menu">
                 
-        <ul>
-            <li><a href="${pageContext.request.contextPath}/blog/" class="current">Блог</a></li>
-            <li><a href="${pageContext.request.contextPath}/blogPortfolio/">Галерея</a></li>
-            <li><a href="about.html">Про мене</a></li>
-            <li><a href="contact.html">Контакти</a></li>
+        <ul id="blogMenu">
+            <c:set var="tileId"><tiles:getAsString name="tileId" /></c:set>
+            <li><a href="${pageContext.request.contextPath}/blog/" <c:if test="${tileId == 'blogPosts'}">class="current"</c:if>>Блог</a></li>
+            <li><a href="${pageContext.request.contextPath}/blogPortfolio/" <c:if test="${tileId == 'blogPortfolio'}">class="current"</c:if>>Галерея</a></li>
+            <li><a href="${pageContext.request.contextPath}/blogAbout/" <c:if test="${tileId == 'blogAbout'}">class="current"</c:if>>Про мене</a></li>
+            <li><a href="${pageContext.request.contextPath}/blogContact/" <c:if test="${tileId == 'blogContact'}">class="current"</c:if>>Контакти</a></li>
         </ul>	
     
     </div> <!-- end of templatemo_menu -->
@@ -54,7 +68,7 @@
         <div id="templatemo_header">
         
             <div id="site_title">
-                <h1><a href="http://www.templatemo.com" target="_parent">Блог про <strong>кошенят</strong><span>Найкращіх створінь у світі</span></a></h1>
+                <h1><a href="http://www.koshenya.com" target="_parent">Блог про <strong>кошенят</strong><span>Найкращіх створінь у світі</span></a></h1>
             </div><!-- end of site_title -->
             
         </div> <!-- end of header -->

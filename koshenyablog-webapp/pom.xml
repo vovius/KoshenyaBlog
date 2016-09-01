@@ -25,6 +25,7 @@
         <version.flyway>4.0.3</version.flyway>
         <version.slf4j>1.7.21</version.slf4j>
         <version.junit>4.12</version.junit>
+        <version.javax-mail>1.5.6</version.javax-mail>
     </properties>
 
 
@@ -179,6 +180,18 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${version.junit}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>${version.javax-mail}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
         </dependency>
 
     </dependencies>
