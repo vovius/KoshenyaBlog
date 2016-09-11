@@ -1,5 +1,7 @@
 TODO:
 -----
+Add authirization!
+
 Admin posts:
 5. Delete selected posts
 7. Remove/change post comments
@@ -26,6 +28,10 @@ Develop view of images library (image with description)
 Users:
 1. Implement users with the registration info
 2. Registration from Facebook
+
+Contact:
+Add an ability to attach files
+Change e-mail cridentials
 
 Other:
 think about AngularJS
