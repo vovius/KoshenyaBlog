@@ -68,7 +68,7 @@
         <div id="templatemo_header">
         
             <div id="site_title">
-                <h1><a href="http://www.koshenya.com" target="_parent">Блог про <strong>кошенят</strong><span>Найкращіх створінь у світі</span></a></h1>
+                <h1><a href="http://www.koshenya.com" target="_parent">Блог про <strong>кошенят</strong><span>Найкращих створінь у світі</span></a></h1>
             </div><!-- end of site_title -->
             
         </div> <!-- end of header -->

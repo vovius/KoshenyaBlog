@@ -45,7 +45,7 @@
                 
 <div id="comment_form">
     <a name="c"></a>
-    <h3>Leave a comment</h3>
+    <h3>Залишити коментар</h3>
 
     <%--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>--%>
 
@@ -53,17 +53,17 @@
         <input type="hidden" value="${message.id}" name="postId" />
         <input type="hidden" value="" name="parentCommentId" id="parentCommentId" />
         <div class="form_row">
-            <label><strong>Name</strong> (required)</label>
+            <label><strong>Ім'я</strong> (обов'язково)</label>
             <br />
             <input type="text" name="name" />
         </div>
         <div class="form_row">
-            <label><strong>Email</strong>  (required, will not be published)</label>
+            <label><strong>Email</strong>  (обов'язково, не буде показаний)</label>
             <br />
             <input type="text" name="email" />
         </div>
         <div class="form_row">
-            <label><strong>Comment</strong></label>
+            <label><strong>Коментар</strong></label>
             <br />
             <textarea name="comment" rows="" cols=""></textarea>
         </div>
