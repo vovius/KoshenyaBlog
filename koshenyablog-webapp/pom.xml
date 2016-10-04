@@ -17,7 +17,8 @@
 
 
     <properties>
-        <version.spring>4.2.4.RELEASE</version.spring>
+        <version.spring>4.3.3.RELEASE</version.spring>
+        <version.spring_security>4.1.3.RELEASE</version.spring_security>
         <version.hibernate>5.2.1.Final</version.hibernate>
         <version.derby>10.11.1.1</version.derby>
         <version.tiles>3.0.5</version.tiles>
@@ -82,7 +83,16 @@
             <version>${version.spring}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${version.spring_security}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${version.spring_security}</version>
+        </dependency>
 
         <!-- Hibernate -->
         <dependency>
