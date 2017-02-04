@@ -30,7 +30,6 @@
     </dependencies>
 
     <properties>
-        <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
         <version.maven-war-plugin>2.6</version.maven-war-plugin>
     </properties>
 
